@@ -335,15 +335,21 @@ def go(config):
 
     run(driver_pjs, argconf.ID, argconf.PASSWORD, campus, argconf.MAIL_ADDRESS, argconf.PHONE_NUMBER, reason, detail, destination, track,
         habitation, district, street, wechat, argconf.SENDKEY)
+    if len(argconf.ID2):
+        run(driver_pjs, argconf.ID2, argconf.PASSWORD2, campus, argconf.MAIL_ADDRESS, argconf.PHONE_NUMBER2, reason, detail, destination, track,
+            habitation, district, street, wechat, argconf.SENDKEY)
 
 
 if __name__ == '__main__':
 
     parser = ArgumentParser()
     parser.add_argument('--ID', type=str)
+    parser.add_argument('--ID2', type=str, default="")
     parser.add_argument('--PASSWORD', type=str)
+    parser.add_argument('--PASSWORD2', type=str, default="")
     parser.add_argument('--MAIL_ADDRESS', type=str)
     parser.add_argument('--PHONE_NUMBER', type=str)
+    parser.add_argument('--PHONE_NUMBER2', type=str, default="")
     parser.add_argument('--SENDKEY', type=str)
     argconf = parser.parse_args()
 
